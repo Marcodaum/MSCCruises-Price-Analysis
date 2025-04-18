@@ -44,8 +44,6 @@ def scrape():
         print("Scraping completed. Now storing into database...")
         current_time = datetime.now()
 
-
-
         for cruise in cruises:
             existing_cruise = Cruises.query.filter(
                 Cruises.id == cruise.cruise_id
@@ -88,7 +86,6 @@ def get_cruises():
             query = query.order_by(Cruises.price)
         elif order_by == "duration":
             query = query.order_by(Cruises.cruise_duration)
-
 
         if no:
             query = query.limit(no)
